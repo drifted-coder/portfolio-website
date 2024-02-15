@@ -555,11 +555,15 @@ img {
 }
 
 @media screen and (max-width: 768px){
+  .button{
+    display: flex;
+    justify-content: center;
+  }
   .margin-left-class-1{
-    margin-left: 23px;
+    margin-left: -10px;
   }
   .margin-left-class-2{
-    margin-left:0px;
+    margin-left:-14px;
   }
   .circle {
     visibility: hidden;
@@ -588,6 +592,9 @@ img {
 }
 
 @media screen and (min-width: 768px) and (max-width: 768px){
+  .margin-left-class-1{
+    margin-left: -2px;
+  }
   .margin-left-class-3{
     position: relative;
     right: 1rem;
