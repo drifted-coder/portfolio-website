@@ -566,7 +566,9 @@ img {
 .margin-left-class-2{
   margin-left:10rem
 }
-
+margin-left-class-4{
+  margin-left:30rem;
+}
 @media screen and (max-width: 768px){
   .button{
     display: flex;
