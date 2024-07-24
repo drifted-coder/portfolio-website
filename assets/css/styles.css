@@ -581,14 +581,15 @@ margin-left-class-4{
     margin-left: -9px;
   }
 
+  .circle {
+    visibility: hidden;
+  }
+
   .margin-left-class-1{
     margin-left: -10px;
   }
   .margin-left-class-2{
     margin-left:-14px;
-  }
-  .circle {
-    visibility: hidden;
   }
   .margin-left-class-3{
     position: relative;
