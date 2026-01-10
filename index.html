@@ -4,422 +4,933 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Arunava Ghosh - Full Stack Developer specializing in Angular, React, Spring Boot, and MySQL. Experienced in building scalable web applications with modern technologies.">
+    <meta name="keywords"
+        content="Full Stack Developer, Angular Developer, React Developer, Spring Boot, MySQL, Web Developer, Software Engineer, Arunava Ghosh">
+    <meta name="author" content="Arunava Ghosh">
+    <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arunava Ghosh - Full Stack Developer">
+    <meta property="og:description"
+        content="Passionate Software Developer specializing in Angular, React, and Spring Boot">
+    <meta property="og:url" content="https://yourwebsite.com">
 
-    <title>Arunava Ghosh</title>
+    <title>Arunava Ghosh - Full Stack Developer | Angular, React, Spring Boot</title>
     <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="canonical" href="https://yourwebsite.com">
 
-    <!-- =====BOX ICONS===== -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Box Icons -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
+    <style>
+        :root {
+            --primary-color: #4070f4;
+            --secondary-color: #0e2431;
+            --text-color: #2c3e50;
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #667eea;
+            --secondary-color: #1a1a2e;
+            --text-color: #e0e0e0;
+            --bg-color: #0f0f1e;
+            --card-bg: #1a1a2e;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(20deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card-custom {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Skills */
+        .skill-item {
+            margin-bottom: 2rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Projects Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            text-align: center;
+        }
+
+        .project-info h4 {
+            color: var(--text-color);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid var(--bg-color);
+            top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 2rem !important;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* ATS Friendly - Semantic HTML */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <!--===== HEADER =====-->
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo">Arunava</a>
-            </div>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
-                    <li class="nav__item"><a href="#experience" class="nav__link">Experience</a></li>
-                    <li class="nav__item"><a href="#education" class="nav__link">Education</a></li>
-                    <li class="nav__item"><a href="#resume" class="nav__link">Resume</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Arunava</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <i class='bx bx-moon theme-toggle' id="themeToggle" title="Toggle Dark Mode"></i>
+                    </li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-        </nav>
-    </header>
-
-    <main class="l-main">
-        <!--===== HOME =====-->
-        <section class="home bd-grid" id="home">
-            <div class="home__data">
-                <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Arunava</span><br> Web Developer
-                </h1>
-
-                <a href="#contact" class="button-1">Contact</a>
-            </div>
-
-            <div class="home__social">
-                <a href="https://www.linkedin.com/in/arunava-ghosh-007b11172/" target="_blank"
-                    class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://twitter.com/drifted_coder" target="_blank" class="home__social-icon"><i
-                        class='bx bxl-twitter'></i></a>
-                <a href="https://github.com/drifted-coder" target="_blank" class="home__social-icon"><i
-                        class='bx bxl-github'></i></a>
-            </div>
-
-            <div class="home__img">
-                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <mask id="mask0" mask-type="alpha">
-                        <path
-                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-                    </mask>
-                    <g mask="url(#mask0)">
-                        <path
-                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-                        <image class="home__blob-img" x="50" y="60" href="assets/img/prefil.png" />
-                    </g>
-                </svg>
-            </div>
-        </section>
-
-        <!--===== ABOUT =====-->
-        <section class="about section " id="about">
-            <h2 class="section-title">About</h2>
-
-            <div class="about__container bd-grid">
-                <div class="about__img">
-                    <img src="assets/img/about.png" alt="">
-                </div>
-
-                <div>
-                    <h2 class="about__subtitle">I'am Arunava</h2>
-                    <p class="about__text">Hello! I'm Arunava Ghosh, a passionate Software Developer with 2 years of
-                        experience. I specialize in Web Apps Development, and I'm dedicated to crafting engaging and
-                        user-friendly solutions. With a strong foundation in HTML5, CSS3, Javascript, Typescript,
-                        Angular, Java, Spring Boot & MySQL, I thrive on
-                        solving complex problems and delivering high-quality results. My approach combines creativity,
-                        attention to detail, and a commitment to continuous learning. Outside of work, you can find me
-                        exploring new technologies, collaborating with peers, and contributing to open-source projects.
-                        Let's connect and create something amazing together!</p>
-                </div>
-            </div>
-        </section>
-
-        <!--===== SKILLS =====-->
-        <section class="skills section" id="skills">
-            <h2 class="section-title">Skills</h2>
-
-            <div class="skills__container bd-grid">
-                <div>
-                    <h2 class="skills__subtitle">Profesional Skills</h2>
-                    <p class="skills__text">
-                        Experienced in Angular, React, and Spring Boot, with proficiency in Java and MySQL. I bring a
-                        comprehensive skill set to the table, enabling me to develop robust web applications with
-                        seamless frontend-backend integration. With a strong foundation in software development
-                        principles and a passion for continuous learning, I am committed to delivering high-quality
-                        solutions that meet the needs of modern businesses.</p>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">HTML5</span>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Text Content -->
+                    <div class="col-lg-6">
+                        <h1 class="hero-title">
+                            Hi, I'm
+                            <span
+                                style="background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                Arunava Ghosh
+                            </span>
+                        </h1>
+                        <p class="hero-subtitle">Full Stack Developer</p>
+                        <p class="hero-text">
+                            Passionate Software Developer specializing in Angular, React, Spring Boot, and MySQL.
+                            I create scalable, user-friendly web applications that make a difference.
+                        </p>
+                        <div class="mb-4">
+                            <a href="#contact" class="btn-primary-custom me-3">Get In Touch</a>
+                            <a href="assets/resume_files/Arunava_Resume.pdf" class="btn-primary-custom"
+                                download>Download Resume</a>
                         </div>
-                        <div class="skills__bar skills__html">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">95%</span>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/arunava-ghosh-007b11172/" target="_blank"
+                                rel="noopener" aria-label="LinkedIn Profile">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                            <a href="https://github.com/drifted-coder" target="_blank" rel="noopener"
+                                aria-label="GitHub Profile">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                            <a href="https://twitter.com/drifted_coder" target="_blank" rel="noopener"
+                                aria-label="Twitter Profile">
+                                <i class='bx bxl-twitter'></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">CSS3</span>
-                        </div>
-                        <div class="skills__bar skills__css">
 
-                        </div>
-                        <div>
-                            <span class="skills__percentage">85%</span>
+                    <!-- Image / Blob -->
+                    <div class="col-lg-6 d-flex justify-content-center">
+                        <div class="home__img"
+                            style="width: 100%; max-width: 400px;">
+                            <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 100%; height: auto;">
+
+                                <!-- Define the gradient -->
+                                <defs>
+                                    <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#667EEA" />
+                                        <stop offset="100%" stop-color="#764BA2" />
+                                    </linearGradient>
+                                </defs>
+
+                                <mask id="mask0" mask-type="alpha">
+                                    <path
+                                        d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                                </mask>
+
+                                <g mask="url(#mask0)">
+                                    <!-- Use the gradient here -->
+                                    <path
+                                        d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+                                        fill="url(#blobGradient)" />
+
+                                    <image class="home__blob-img" x="50" y="60" width="380" height="380"
+                                        href="assets/img/profile.png" />
+                                </g>
+                            </svg>
                         </div>
                     </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">JAVASCRIPT</span>
-                        </div>
-                        <div class="skills__bar skills__js">
 
-                        </div>
-                        <div>
-                            <span class="skills__percentage">90%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">ANGULAR</span>
-                        </div>
-                        <div class="skills__bar skills__angular">
 
-                        </div>
-                        <div>
-                            <span class="skills__percentage">85%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">SPRING BOOT</span>
-                        </div>
-                        <div class="skills__bar skills__springboot">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">80%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">MYSQL</span>
-                        </div>
-                        <div class="skills__bar skills__mysql">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">85%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">REACT</span>
-                        </div>
-                        <div class="skills__bar skills__react">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">70%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">MONGODB</span>
-                        </div>
-                        <div class="skills__bar skills__mongo">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">70%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">REDUX</span>
-                        </div>
-                        <div class="skills__bar skills__redux">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">60%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <span class="skills__name">PHP</span>
-                        </div>
-                        <div class="skills__bar skills__php">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">70%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="assets/img/work3.jpg" alt="" class="skills__img">
                 </div>
             </div>
         </section>
 
-        <!--===== PROJECTS =====-->
-        <section class="work section" id="projects">
-            <h2 class="section-title">Projects</h2>
 
-            <div class="work__container bd-grid">
-                <a href="https://kppp.karnataka.gov.in/#/portal/portal-home" target="_blank" class="work__img">
-                    <img src="assets/img/work1.png" alt="">
-                    <span style="display:flex; justify-content:center">eProcurement Portal</span>
-                </a>
-                <a href="https://github.com/drifted-coder/Shopping-time" target="_blank" class="work__img">
-                    <img src="assets/img/work2.png" alt="">
-                    <span style="display:flex; justify-content:center">Shopping Time</span>
-                </a>
-                <a href="https://github.com/drifted-coder/php-projects/tree/master/docscape" target="_blank"
-                    class="work__img">
-                    <img src="assets/img/work3.png" alt="">
-                    <span style="display:flex; justify-content:center">Docscape - Appointment System</span>
-                </a>
-                <a href="https://github.com/drifted-coder/php-projects/tree/master/feedback-project" target="_blank"
-                    class="work__img">
-                    <img src="assets/img/work4.png" alt="">
-                    <span style="display:flex; justify-content:center">Student Feedback System</span>
-                </a>
-                <a href="https://github.com/drifted-coder/angular-ecommerce" target="_blank" class="work__img">
-                    <img src="assets/img/work5.png" alt="">
-                    <span style="display:flex; justify-content:center">Luv2shop website</span>
-                </a>
-                <a href="https://github.com/drifted-coder/weather-app" target="_blank" class="work__img">
-                    <img src="assets/img/work6.png" alt="">
-                    <span style="display:flex; justify-content:center">Rain Vine -weather app</span>
-                </a>
-                <a href="http://89.117.62.190/cobaltfe/#/login" target="_blank" class="work__img">
-                    <img src="assets/img/work7.png" alt="">
-                    <span style="display:flex; justify-content:center">Cobalt</span>
-                </a>
-                <a href="http://89.117.62.190/whistleblower/#/home" target="_blank" class="work__img">
-                    <img src="assets/img/work8.png" alt="">
-                    <span style="display:flex; justify-content:center">Whistleblower</span>
-                </a>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card-custom">
+                            <p style="font-size: 1.1rem; line-height: 1.8;">
+                                I'm a dynamic Full Stack Developer with extensive experience in building modern web
+                                applications. With a Master's degree in Computer Applications and hands-on experience at
+                                leading tech companies like DXC Technology and Centreax Technologies, I specialize in
+                                creating robust, scalable solutions using Angular, React, Spring Boot, and MySQL.
+                            </p>
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                                My expertise lies in developing both monolithic and microservices architectures,
+                                crafting responsive user interfaces, and implementing secure backend services. I'm
+                                passionate about continuous learning, exploring new technologies, and contributing to
+                                innovative projects that solve real-world problems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!--===== EXPERIENCE =====-->
-        <section class="work section" id="experience">
-            <h2 class="section-title">Experience</h2>
+        <!-- Skills Section -->
+        <section id="skills" style="background: rgba(102, 126, 234, 0.05);">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card-custom">
+                            <p class="mb-4" style="font-size: 1.1rem;">Experienced in Angular, React, and Spring Boot,
+                                with proficiency in Java and MySQL. I bring a comprehensive skill set enabling robust
+                                web applications with seamless frontend-backend integration.</p>
 
-            <div class="milestones-container">
-                <!-- <div class="milestone skills__text">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>Centreax Technologies</h3>
-                        <p><span style="font-weight:bold;">Role - </span>Software Developer</p>
-                        <p><span style="font-weight:bold;">Description - </span>I am a full stack developer at Centreax
-                            Technologies, proficient in HTML, CSS, Bootstrap, Angular, and Java.<br> My expertise spans
-                            creating APIs using both monolithic and microservices architectures, tailored to project
-                            requirements.<br> I specialize in Angular for both monolithic and micro-UI approaches, ensuring
-                            efficient and scalable web development solutions.</p>
-                        <p><span style="font-weight:bold;">From - </span> Apr 2022 to Jan 2024</p>
-                    </div>
-                </div> -->
-                <div class="milestone skills__text margin-left-class-new">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>Centreax Technologies</h3>
-                        <p><span style="font-weight:bold;">Role - </span>Software Developer</p>
-                        <p><span style="font-weight:bold;">Description - </span>Working as a full stack developer using Angular, Spring Boot, and MySQL.
-                             <br>Developing and maintaining scalable web applications.
-                             <br>Implementing secure, responsive user interfaces with Angular.
-                             <br>Building robust backend services with Spring Boot.
-                             <br>Managing data storage and retrieval using MySQL.
-                             Collaborating with cross-functional teams to deliver high-quality software solutions
-                        <p><span style="font-weight:bold;">From - </span> Feb 2024 to Present</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>HTML5</span><span>95%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>JavaScript</span><span>90%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>Angular</span><span>85%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>Spring Boot</span><span>80%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>React</span><span>70%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>CSS3</span><span>85%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>MySQL</span><span>85%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>MongoDB</span><span>70%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>Redux</span><span>60%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 60%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-name"><span>PHP</span><span>70%</span></div>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="milestone skills__text margin-left-class-1">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>DXC Technology</h3>
-                        <p><span style="font-weight:bold;">Role - </span>Software Developer</p>
-                        <p><span style="font-weight:bold;">Description - </span>Experienced Frontend Developer at DXC
-                            Technology with expertise in HTML, CSS, Bootstrap, and
-                            Angular.<br>Specialized in developing micro-UIs including Supplier-UI, Estimate-UI, and
-                            Tender-Evaluation modules.<br>Proficient in backend technologies such as Spring Boot and
-                            MySQL
-                            for payment microservices.<br>Passionate about crafting user-centric interfaces and
-                            leveraging
-                            cutting-edge technologies to drive innovation in software development.</p>
-                        <p><span style="font-weight:bold;">From - </span> Apr 2022 to Jan 2024</p>
-                    </div>
-                </div>
-                <div class="milestone skills__text margin-left-class-3">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>Globsyn Technologies</h3>
-                        <p><span style="font-weight:bold;">Role - </span>Apprenticeship</p>
-                        <p><span style="font-weight:bold;">Description - </span>During these three months I have learned
-                            android development <br> and also created a project of chat application using - Android
-                            Studio,
-                            Firebase and GitHub.</p>
-                        <p><span style="font-weight:bold;">From - </span> Jan 2022 to Mar 2022</p>
-                    </div>
-                </div>
-                <div class="milestone skills__text margin-left-class-2">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>NIVT India</h3>
-                        <p><span style="font-weight:bold;">Role - </span>Apprenticeship</p>
-                        <p><span style="font-weight:bold;">Description - </span>During these three months I have learned
-                            PHP development<br> and also created a project of doctor appointment system using - HTML,
-                            CSS,
-                            Bootstrap 4, PHP, AJAX, JavaScript.
-                        <p><span style="font-weight:bold;">From - </span> Nov 2019 to Mar 2020</p>
-                    </div>
-                </div>
-                <!-- Add more milestones as needed -->
             </div>
         </section>
 
-        <!--===== EDUCATION =====-->
-        <section class="work section" id="education">
-            <h2 class="section-title">Education</h2>
-
-            <div class="milestones-container">
-                <div class="milestone skills__text">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>Masters of Computer Application(MCA)</h3>
-                        <p>Heritage Institute Of Technology</p>
-                        <p>Year of Graduation - 2022</p>
-                        <p>DGPA:- 9.14</p>
-                    </div>
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-grid">
+                    <a href="https://kppp.karnataka.gov.in/#/portal/portal-home" target="_blank" rel="noopener"
+                        class="project-card">
+                        <img src="assets/img/work1.png" alt="eProcurement Portal Project">
+                        <div class="project-info">
+                            <h4>eProcurement Portal</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/drifted-coder/Shopping-time" target="_blank" rel="noopener"
+                        class="project-card">
+                        <img src="assets/img/work2.png" alt="Shopping Time E-commerce Project">
+                        <div class="project-info">
+                            <h4>Shopping Time</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/drifted-coder/php-projects/tree/master/docscape" target="_blank"
+                        rel="noopener" class="project-card">
+                        <img src="assets/img/work3.png" alt="Docscape Appointment System">
+                        <div class="project-info">
+                            <h4>Docscape - Appointment System</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/drifted-coder/php-projects/tree/master/feedback-project" target="_blank"
+                        rel="noopener" class="project-card">
+                        <img src="assets/img/work4.png" alt="Student Feedback System">
+                        <div class="project-info">
+                            <h4>Student Feedback System</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/drifted-coder/angular-ecommerce" target="_blank" rel="noopener"
+                        class="project-card">
+                        <img src="assets/img/work5.png" alt="Luv2shop E-commerce Website">
+                        <div class="project-info">
+                            <h4>Luv2shop Website</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/drifted-coder/weather-app" target="_blank" rel="noopener"
+                        class="project-card">
+                        <img src="assets/img/work6.png" alt="Rain Vine Weather Application">
+                        <div class="project-info">
+                            <h4>Rain Vine - Weather App</h4>
+                        </div>
+                    </a>
+                    <a rel="noopener" class="project-card">
+                        <img src="assets/img/work7.png" alt="Cobalt Project">
+                        <div class="project-info">
+                            <h4>Cobalt</h4>
+                        </div>
+                    </a>
+                    <a href="http://89.117.62.190/whistleblower/#/home" target="_blank" rel="noopener"
+                        class="project-card">
+                        <img src="assets/img/work8.png" alt="Whistleblower Project">
+                        <div class="project-info">
+                            <h4>Whistleblower</h4>
+                        </div>
+                    </a>
                 </div>
-                <div class="milestone skills__text">
-                    <div class="circle"></div>
-                    <div class="content">
-                        <h3>Bachelors of Computer Application(BCA)</h3>
-                        <p>University of Burdwan</p>
-                        <p>Year of Graduation - 2020</p>
-                        <p>Percentage:- 77.37%</p>
-                    </div>
-                </div>
-                <!-- Add more milestones as needed -->
             </div>
         </section>
 
-        <!--===== RESUME =====-->
-        <section class="contact section" id="resume">
-            <h2 class="section-title">Resume</h2>
-            <div class="contact__container bd-grid">
-                <a href="assets/resume_files/Arunava_Ghosh_CV.pdf" class="button" download="Arunava_Ghosh_CV">Download
-                    Resume</a>
+        <!-- Experience Section -->
+        <section id="experience" style="background: rgba(102, 126, 234, 0.05);">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 style="color: var(--primary-color);">Software Developer</h3>
+                            <h4>Centreax Technologies</h4>
+                            <p style="color: #999; margin: 0.5rem 0;">February 2024 - Present</p>
+                            <p>Working as a full stack developer using Angular, Spring Boot, and MySQL. Developing and
+                                maintaining scalable web applications, implementing secure and responsive user
+                                interfaces, and building robust backend services. Working on Banking Sales Operations
+                                System, Sales and Inventory Management System, and Proposal Acceptance System.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 style="color: var(--primary-color);">Junior Software Engineer</h3>
+                            <h4>DXC Technology</h4>
+                            <p style="color: #999; margin: 0.5rem 0;">September 2022 - January 2024</p>
+                            <p>Specialized in developing micro-UIs including Supplier-UI, Estimate-UI, and
+                                Tender-Evaluation modules. Proficient in backend technologies such as Spring Boot and
+                                MySQL for payment microservices. Worked on the eProcurement Project for Karnataka
+                                Government.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 style="color: var(--primary-color);">Trainee</h3>
+                            <h4>DXC Technology</h4>
+                            <p style="color: #999; margin: 0.5rem 0;">April 2022 - August 2022</p>
+                            <p>Completed comprehensive training in Full Stack Angular and Spring Boot Development.
+                                Worked on static pages of tender evaluation micro-UI and learned industry best
+                                practices.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 style="color: var(--primary-color);">Apprenticeship</h3>
+                            <h4>Globsyn Technologies</h4>
+                            <p style="color: #999; margin: 0.5rem 0;">January 2022 - March 2022</p>
+                            <p>Learned Android development and created a chat application using Android Studio,
+                                Firebase, and GitHub.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 style="color: var(--primary-color);">Apprenticeship</h3>
+                            <h4>NIVT India</h4>
+                            <p style="color: #999; margin: 0.5rem 0;">November 2019 - March 2020</p>
+                            <p>Learned PHP development and created a doctor appointment system using HTML, CSS,
+                                Bootstrap 4, PHP, AJAX, and JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <!--===== CONTACT =====-->
-        <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
 
-            <div class="contact__container bd-grid">
-                <a href="mailto:ghosharunava57@gmail.com" class="button">Mail Me</a>
-                <!-- <form action="" method="post" class="contact__form">
-                    <input type="text" placeholder="Name" name = "name" class="contact__input" required>
-                    <input type="email" placeholder="Email" name = "email" value="ghosharunava57@gmail.com" disabled class="contact__input" required>
-                    <textarea id="" cols="0" rows="10" name = "message" class="contact__input" required></textarea>
-                    <input type="submit" value="send" class="contact__button button">
-                </form> -->
+        <!-- Education Section -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="row">
+                    <div class="col-lg-5 mx-auto">
+                        <div class="card-custom text-center">
+                            <h3 style="color: var(--primary-color);">Master of Computer Applications (MCA)</h3>
+                            <h4>Heritage Institute of Technology</h4>
+                            <p style="margin: 1rem 0;">2020 - 2022</p>
+                            <p style="font-size: 1.2rem; font-weight: 600;">DGPA: 9.14</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 mx-auto">
+                        <div class="card-custom text-center">
+                            <h3 style="color: var(--primary-color);">Bachelor of Computer Applications (BCA)</h3>
+                            <h4>University of Burdwan</h4>
+                            <p style="margin: 1rem 0;">2017 - 2020</p>
+                            <p style="font-size: 1.2rem; font-weight: 600;">Percentage: 77.37%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="background: rgba(102, 126, 234, 0.05);">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="row">
+                    <div class="col-lg-6 mx-auto text-center">
+                        <div class="card-custom">
+                            <h3 class="mb-4">Let's Create Something Amazing Together!</h3>
+                            <p class="mb-4" style="font-size: 1.1rem;">I'm always open to discussing new projects,
+                                creative ideas, or opportunities to be part of your vision.</p>
+                            <a href="mailto:ghosharunava57@gmail.com" class="btn-primary-custom"
+                                aria-label="Send Email">
+                                <i class='bx bx-envelope me-2'></i>Email Me
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!--===== FOOTER =====-->
-    <footer class="footer">
-        <p class="footer__title">Arunava</p>
-        <div class="footer__social">
-            <a href="https://github.com/drifted-coder" target="_blank" class="footer__icon"><i
-                    class='bx bxl-github'></i></a>
-            <a href="https://twitter.com/drifted_coder" target="_blank" class="footer__icon"><i
-                    class='bx bxl-twitter'></i></a>
-            <a href="https://www.linkedin.com/in/arunava-ghosh-007b11172/" target="_blank" class="footer__icon"><i
-                    class='bx bxl-linkedin'></i></a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Arunava Ghosh</h3>
+            <div class="mb-3">
+                <a href="https://github.com/drifted-coder" target="_blank" rel="noopener" aria-label="GitHub Profile"><i
+                        class='bx bxl-github'></i></a>
+                <a href="https://twitter.com/drifted_coder" target="_blank" rel="noopener"
+                    aria-label="Twitter Profile"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.linkedin.com/in/arunava-ghosh-007b11172/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn Profile"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <p style="margin: 0; opacity: 0.8;">© <span id="currentYear"></span> Arunava Ghosh. All rights reserved.</p>
         </div>
-        <p class="footer__copy">&#169; drifted-coder. All rigths reserved</p>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!--===== SCROLL REVEAL =====-->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Custom JS -->
+    <script>
+        // current year in footer
+        const currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
 
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeToggle.className = theme === 'dark' ? 'bx bx-sun theme-toggle' : 'bx bx-moon theme-toggle';
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Update active link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Active Navigation on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.parentElement.previousElementSibling.querySelector('.skill-name span:last-child').textContent;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
 </body>
 
 </html>
